@@ -1,60 +1,78 @@
-# appcep
+# **API de Busca de CEP com Cache**
 
-This template should help get you started developing with Vue 3 in Vite.
+Uma aplicação Vue.js criada com Vite que utiliza a API pública ViaCEP para buscar informações de endereços com base em um CEP informado pelo usuário. A aplicação também implementa cache usando Pinia para otimizar as requisições.
 
-## Recommended IDE Setup
+* obs. aplicação apenas para treinar conceitos, estado, testes, e cache first
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+---
 
-## Customize configuration
+## **Instalação**
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/faustinopsy/appcep.git
+   cd appcep
 
-## Project Setup
+2. Instale as dependências:
 
-```sh
-npm install
-```
+    ```bash
+    npm install
 
-### Compile and Hot-Reload for Development
+3. Inicie o servidor de desenvolvimento:
 
-```sh
-npm run dev
-```
+    ```bash
+    npm run dev
 
-### Compile and Minify for Production
+## Tecnologias Utilizadas
+- Vue.js 3: 
+Framework JavaScript progressivo para construção de interfaces de usuário.
+- Vite: 
+Ferramenta moderna para minificação, desenvolvimento e build de projetos frontend moderno.
+- Pinia: 
+Gerenciamento de estado para Vue.js.
+- Axios: 
+Biblioteca para requisições HTTP.
+- Playwright: 
+Framework para testes end-to-end (E2E).
 
-```sh
-npm run build
-```
+## Funcionalidades
+- Busca de CEP:
+O usuário informa um CEP no formulário e os dados são buscados na API pública ViaCEP.
+- Exibição de Dados:
+Bairro, cidade e rua são exibidos no formulário após a busca.
+- Cache com Pinia:
+Os dados da API são armazenados em cache, evitando chamadas repetidas para o mesmo CEP.
+- Testes End-to-End:
+Verificação de funcionamento do fluxo de busca e uso correto do cache.
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+## Estrutura do Projeto
 
-```sh
-npm run test:unit
-```
+    ```bash
+    src/
+    ├── components/
+    │   ├── ResultForm.vue    # Componente de exibição dos resultados
+    │   ├── ApiService.js     # Serviço para consumir a API ViaCEP
+    ├── stores/
+    │   ├── cepStore.js       # Gerenciamento de estado com Pinia
+    ├── views/
+    │   ├── HomeView.vue      # Componente de entrada do CEP
+    ├── App.vue               # Componente principal
+    ├── main.js               # Entrada da aplicação
+    ```
 
-### Run End-to-End Tests with [Playwright](https://playwright.dev)
 
-```sh
-# Install browsers for the first run
-npx playwright install
+## Instruções de uso
+1. Iniciar o servidor de desenvolvimento:
+    ```bash
+    npm run dev
 
-# When testing on CI, must build the project first
-npm run build
+2. Executar os testes end-to-end:
+    ```bash
+    npx playwright test
 
-# Runs the end-to-end tests
-npm run test:e2e
-# Runs the tests only on Chromium
-npm run test:e2e -- --project=chromium
-# Runs the tests of a specific file
-npm run test:e2e -- tests/example.spec.ts
-# Runs the tests in debug mode
-npm run test:e2e -- --debug
-```
+3. Exibir o relatório de testes:
+    ```bash
+    npx playwright show-report
 
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+## Licença
+Este projeto está licenciado sob a MIT License.
